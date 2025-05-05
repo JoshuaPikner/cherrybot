@@ -6,7 +6,9 @@ const app = express();
 const port = 3000;
 
 function runPythonScript(scriptPath, args, callback) {
-    const pythonProcess = spawn('python', [scriptPath].concat(args));
+    console.log(scriptPath);
+    console.log(args);
+    const pythonProcess = spawn('python3', [scriptPath].concat(args));
   
     let data = '';
     pythonProcess.stdout.on('data', (chunk) => {
@@ -44,3 +46,4 @@ app.listen(port, () => {
   })
 
   //12.3....435....1....4........54..2..6...7.........8.9...31..5.......9.7.....6...8
+  //..............3.85..1.2.......5.7.....4...1...9.......5......73..2.1........4...9

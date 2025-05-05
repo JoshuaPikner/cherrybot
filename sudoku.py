@@ -166,36 +166,36 @@ def solvestart(puzzle):
     return solve(puzzle, set(), time.perf_counter(), symbols)
 
 if __name__ == '__main__':
-    with open(args[0]) as file:
-        puzzleList = [line.strip() for line in file]
-
-    total = 0
-    start = time.perf_counter()
-    #puzzleList = args[1:]
+    # with open(args[0]) as file:
+    #     puzzleList = [line.strip() for line in file]
+    puzzleList = [args[0]]
+    # total = 0
+    # start = time.perf_counter()
+    # #puzzleList = args[1:]
     
-    for i in range(len(puzzleList)):
-        symbols = [puzzleList[i][h] for h in range(81) if not puzzleList[i][h] == "."] + [*"987654321"]
+    # for i in range(len(puzzleList)):
+    #     symbols = [puzzleList[i][h] for h in range(81) if not puzzleList[i][h] == "."] + [*"987654321"]
+    #     symbolset = {*symbols[:9]}
+    #     print(str(i + 1) + ":", puzzleList[i])
+    #     if len(puzzleList[i]) == 81:
+    #         solution = solvestart(puzzleList[i])
+    #     else:
+    #         solution = "A" * 81
+    #     if solution.count(".") == 0:
+    #         total += 1
+    #     print(" " + len(str(i + 1)) * " ", solution, checksum(solution), f"{(time.perf_counter() - start):.4g}S")
+    #     print()
+    #     #bprint(solution)
+    # print(total, time.perf_counter() - start)
+    
+    
+    if len(puzzleList[0]) == 81:
+        symbols = [puzzleList[0][h] for h in range(81) if not puzzleList[0][h] == "."] + [*"987654321"]
         symbolset = {*symbols[:9]}
-        print(str(i + 1) + ":", puzzleList[i])
-        if len(puzzleList[i]) == 81:
-            solution = solvestart(puzzleList[i])
-        else:
-            solution = "A" * 81
-        if solution.count(".") == 0:
-            total += 1
-        print(" " + len(str(i + 1)) * " ", solution, checksum(solution), f"{(time.perf_counter() - start):.4g}S")
-        print()
-        #bprint(solution)
-    print(total, time.perf_counter() - start)
-    
-    
-    #if len(puzzleList[0]) == 81:
-    #    symbols = [puzzleList[0][h] for h in range(81) if not puzzleList[0][h] == "."] + [*"987654321"]
-    #    symbolset = {*symbols[:9]}
-    #    solution = solvestart(puzzleList[0])
-    #    bprint(solution)
-    #else:
-    #    print("bad length :3")
-    #sys.stdout.flush()
+        solution = solvestart(puzzleList[0])
+        bprint(solution)
+    else:
+        print("bad length :3")
+    sys.stdout.flush()
 
 # June Pikner, period 6, 2024
